@@ -1,12 +1,46 @@
-#!/usr/bin/env python3
+# process satellite images in 10 frequency bands.
+# ========================= STABLE TRAINING PARAMETERS =========================
 
-# --------------------
-# process satellite images in 10 frequency bands. The ground truth label is the number of
-# cows that a human expert standing at the center of the satellite image at ground level
-# thinks the surrounding land could support (0, 1, 2, or 3+)
+# for categorical classification, there are 4 classes: 0, 1, 2, or 3+ cows
+NUM_CLASSES = 4
+# class weights to account for uneven distribution of classes
+# training weights:             distribution of ground truth labels:
+CLASS_WEIGHTS = {0: 1.0,        # 0: ~60%
+                1: 4.0,         # 1: ~15%
+                2: 4.0,         # 2: ~15%
+                3: 6.0}         # 3: ~10%
 
-from drought_detection.params import DATA_PATH, IMG_DIM, INPUT_BANDS,\
-    NUM_CLASSES, IMG_RESIZE, NUM_TRAIN, BATCH_SIZE
+# fixed image counts from TFRecords
+NUM_TRAIN = 85056       # 86317 before filtering for null images
+NUM_VAL = 10626         # 10778 before filtering for null images
+
+# default image size resolution dimension (65 x 65 pixel square)
+IMG_DIM = 65
+
+# resizing resolution dimension is determined by EfficientNet model choice
+IMG_RESIZE = 224        # EfficientNetB0 = 224
+
+# efficientnet model version
+EFFICIENT_NET = 'b0'    # EfficientNet model
+
+# ==============================================================================
+# ======================= ADJUSTABLE TRAINING PARAMETERS =======================
+
+# list of input bands to use for training
+INPUT_BANDS = ['rgb']     # can be one of:
+                            # ['all']
+                            # ['composite']
+                            # ['rgb']
+                            # or custom list (eg. ['B3', 'B5', 'B7', 'B2'])
+# batch size of samples
+BATCH_SIZE = 64
+# number of training epochs
+EPOCHS = 50
+# model save path
+MODEL_NAME = f'{LOCAL_MODELS_PATH}/rgbbands_b64_e50'
+
+# directory to train and val data
+DATA_PATH = LOCAL_DATA_PATH
 
 import tensorflow as tf
 from tensorflow.python.ops.numpy_ops import np_config
