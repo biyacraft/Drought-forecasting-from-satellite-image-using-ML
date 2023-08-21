@@ -1,15 +1,10 @@
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-# from google.cloud import storage
-# imports from our parameters file
 from drought_dete_train import GCP_BUCKET_NAME, MODEL_NAME
 import plotly.express as px
 
-
-
 ############################### Webapp functions ##################################
-
 
 def transform_user_img(image_uploaded, new_height, new_width):
     # convert PIL image to numpy array
@@ -75,11 +70,10 @@ def predict(model, image):
 
 
 def save_model(model, MODEL_NAME):
-    # set storage location in cloud
-    STORAGE_LOCATION = f'gs://wagon-data-batch913-drought_detection/SavedModel/{MODEL_NAME}'
-    # save directly to gcp
+    # set storage locatio
+    STORAGE_LOCATION = 'C:\Users\AB\Documents\resources/{MODEL_NAME}'
     model.save(STORAGE_LOCATION)
-    print(f"uploaded model to gcp cloud storage under \n => {STORAGE_LOCATION}")
+    print(f"uploaded model to storage under \n => {STORAGE_LOCATION}")
     print("===========================saved model========================")
 
 # exporting metrics locally
