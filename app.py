@@ -3,9 +3,10 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from drought_detection.utilities import transform_user_img, make_fig, get_dataframe_data
 import pandas as pd
 import plotly.express as px
+from drought_det_train import transform_user_img, make_fig, get_dataframe_data
+import transform_user_img, make_fig, get_dataframe_data
 
 ################# MODEL ##################
 MODEL_PATH = "path/to/model" # R
