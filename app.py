@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import pandas as pd
 import plotly.express as px
-from drought_det_train import transform_user_img, make_fig, get_dataframe_data
+from drought_det_train import transform_user_img, make_fig, get_dataframe_data 
 import transform_user_img, make_fig, get_dataframe_data
 
 ################# MODEL ##################
