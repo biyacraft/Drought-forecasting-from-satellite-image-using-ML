@@ -12,7 +12,10 @@ The model was developed and trained using TensorFlow 2. We use CNNs based on an 
 
 # Drought prediction
 The results displayed are:
-"Looks like your region is likely suffering from drought ",
-"Looks like your region is at risk of drought. ",
-"Looks like your region is not suffering from a drought.",
+"Looks like your region is likely suffering from drought "
+
+"Looks like your region is at risk of drought. "
+
+"Looks like your region is not suffering from a drought."
+
 "Looks like your region is healthy"
