@@ -11,3 +11,8 @@ The current dataset consists of 86,317 train and 10,778 validation satellite ima
 The model was developed and trained using TensorFlow 2. We use CNNs based on an EfficientNet algorithm (https://github.com/google/automl/tree/master/efficientnetv2#readme). EfficientNet is a convolutional neural network architecture and scaling method that uniformly scales all dimensions of depth/width/resolution using a compound coefficient. Efficient net models use neural architecture search (NAS) to jointly optimize model size and training speed, and are scaled up in a way for faster training and inference speed.
 
 # Drought prediction
+The results displayed are:
+"Looks like your region is likely suffering from drought ",
+"Looks like your region is at risk of drought. ",
+"Looks like your region is not suffering from a drought.",
+"Looks like your region is healthy"
