@@ -8,7 +8,7 @@ import plotly.express as px
 from drought_det_train import transform_user_img, make_fig, get_dataframe_data 
 import transform_user_img, make_fig, get_dataframe_data
 
-MODEL_PATH = "path/to/model" # R
+MODEL_PATH = "path/to/model"
 @gradio.utils.cache
 def load_model(model_path):
 return tf.saved_model.load(model_path)
