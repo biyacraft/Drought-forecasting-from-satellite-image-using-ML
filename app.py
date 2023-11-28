@@ -28,7 +28,7 @@ explanations = [
 "Looks like your region is not suffering from a drought.",
 "Looks like your region is healthy"
 ]
-#Define the Gradio interface
+
 image_input = gr.inputs.Image(label="Choose a file")
 output_text = gr.outputs.Textbox(label="Drought Prediction")
 output_plot = gr.outputs.Plot(label="Drought Likelihood")
