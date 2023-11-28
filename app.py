@@ -8,7 +8,6 @@ import plotly.express as px
 from drought_det_train import transform_user_img, make_fig, get_dataframe_data 
 import transform_user_img, make_fig, get_dataframe_data
 
-################# MODEL ##################
 MODEL_PATH = "path/to/model" # R
 @gradio.utils.cache
 def load_model(model_path):
